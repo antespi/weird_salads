@@ -212,7 +212,7 @@ We are only adding to the database the data that will be use in this MVP version
 Extra data provided will be included in future iterations, when needed.
 This is specially important for people personal data. We are taking into account GDPR principle of persisting and managing always the minimum amount of data from users.
 
-[schema graph]
+![data scheme graph](images/data_scheme.jpg)
 
 # Install instructions
 
@@ -333,18 +333,18 @@ $ sudo apt install python3 python3-venv libpq-dev
 
 # References
 
-[FastAPI + React template](https://github.com/evert0n/sample-fastapi-react/blob/main/README.md)
-[FastAPI tutorial](https://fastapi.tiangolo.com/es/tutorial/)
-[Dockerizing FastAPI with Postgres, Uvicorn, and Traefik](https://testdriven.io/blog/fastapi-docker-traefik/)
-[FastAPI, React and Docker](https://www.erraticbits.ca/post/2021/fastapi/)
-[Github uvicorn-gunicorn-fastapi repository](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
-[DockerHub uvicorn-gunicorn-fastapi image](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/)
-[Simple React application for a POS tutorial](https://www.youtube.com/watch?v=8E7Xwy0lXlg)
-[Simple FastAPI REST API tutorial](https://www.youtube.com/watch?v=GN6ICac3OXY)
-[How To Add Login Authentication to React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
-[How To Use Axios with React](https://www.digitalocean.com/community/tutorials/react-axios-react)
-[How To Install and Use PostgreSQL on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-22-04)
-[How to link multiple docker-compose services via network](https://tjtelan.com/blog/how-to-link-multiple-docker-compose-via-network/)
+- [FastAPI + React template](https://github.com/evert0n/sample-fastapi-react/blob/main/README.md)
+- [FastAPI tutorial](https://fastapi.tiangolo.com/es/tutorial/)
+- [Dockerizing FastAPI with Postgres, Uvicorn, and Traefik](https://testdriven.io/blog/fastapi-docker-traefik/)
+- [FastAPI, React and Docker](https://www.erraticbits.ca/post/2021/fastapi/)
+- [Github uvicorn-gunicorn-fastapi repository](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
+- [DockerHub uvicorn-gunicorn-fastapi image](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/)
+- [Simple React application for a POS tutorial](https://www.youtube.com/watch?v=8E7Xwy0lXlg)
+- [Simple FastAPI REST API tutorial](https://www.youtube.com/watch?v=GN6ICac3OXY)
+- [How To Add Login Authentication to React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
+- [How To Use Axios with React](https://www.digitalocean.com/community/tutorials/react-axios-react)
+- [How To Install and Use PostgreSQL on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-22-04)
+- [How to link multiple docker-compose services via network](https://tjtelan.com/blog/how-to-link-multiple-docker-compose-via-network/)
 
 # Credits
 
