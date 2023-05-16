@@ -220,6 +220,11 @@ This is specially important for people personal data. We are taking into account
 
 ### Run docker-compose for application
 
+Create a customer Docker network
+```
+docker network create nory-network
+```
+
 Clone project repository
 ```
 git clone https://github.com/antespi/weird_salads.git
@@ -240,9 +245,11 @@ $ ./scripts/initial_data.sh
 
 ```
 
-Open a browser in the address http://localhost:8000
+Open a browser at http://localhost:8000
+PIN: 1234
 
-If you want to reset the database:
+
+If you want to reset the database (remember to restart the first terminal after it):
 ```
 $ ./scripts/reset_db.sh
 $ ./scripts/initial_data.sh
@@ -256,18 +263,42 @@ Clone Superset repository
 $ git clone https://github.com/apache/superset.git
 ```
 
-Copy the docker compose file and add the application project network 
+Copy the docker compose file and add at the end the application project network 
+```
+$ cp cp docker-compose-non-dev.yml docker-compose-nory.yml
+$ nano docker-compose-nory.yml
+---
+networks:
+  default:
+    external:
+      name: nory-network
+---
+
+$ docker-compose -f docker-compose-nory.yml up
 ```
 
-```
+Open a browser at http://localhost:8088/
+User: admin
+Password: admin
+
+Create a new database connection using these parameters:
+
+- Host: 'api_db'
+- Port: 5432
+- Database name: weird_salads
+- Username: nory
+- Password: nory
+
+
 
 ## Local installation
 
-Install Ubuntu 22.04 LTS (jammy)
-[Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
-[Install SuperSet](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/)
+- Install Ubuntu 22.04 LTS (jammy)
+- [Install Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
+- [Install SuperSet](https://superset.apache.org/docs/installation/installing-superset-using-docker-compose/)
 
-Install PostgreSQL
+- Install PostgreSQL
+
 ```
 $ sudo apt update
 $ sudo apt install postgresql postgresql-contrib
@@ -289,8 +320,10 @@ listen_addresses = '*'
 
 $ sudo systemctl restart postgresql.service
 ```
-[Install Node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)
-Install Python
+
+- [Install Node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04)
+- Install Python
+
 ```
 $ sudo apt update
 $ sudo apt install python3 python3-venv libpq-dev
@@ -311,6 +344,7 @@ $ sudo apt install python3 python3-venv libpq-dev
 [How To Add Login Authentication to React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
 [How To Use Axios with React](https://www.digitalocean.com/community/tutorials/react-axios-react)
 [How To Install and Use PostgreSQL on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-22-04)
+[How to link multiple docker-compose services via network](https://tjtelan.com/blog/how-to-link-multiple-docker-compose-via-network/)
 
 # Credits
 

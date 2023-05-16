@@ -51,3 +51,8 @@ services:
 
 volumes:
   db-data:
+
+networks:
+  default:
+    external:
+      name: nory-network
