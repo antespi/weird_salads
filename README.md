@@ -19,12 +19,12 @@ Each location has its own installation, Internet connection is not required neit
 
 ## Fast user login
 
-All users needs to login into the application, so we can track all the operations that the user is performing
+All users needs to login into the application, so we can track all the operations that the user is performing.
 We will use a 4-digit PIN code, unique per user, so the user can login very fast into the application.
 
 ## Automatic location selector
 
-The users can only access the application in the local network of the location, so the server will take only the information
+The users can only access the application in the local network of the location, so the server will take only the information.
 related with its location. The users don't need to make any selection.
 Really we are not managing any location, simply we are including in each database the proper information.
 Manager users that belong to several locations will see the right information on each one, even though they use the same mobile device.
@@ -32,8 +32,8 @@ This can be done because each location database is independent from the others.
 
 ## POS screen
 
-All users will place an order selecting the menu salads of the current location
-User will print the order for the customer and the order is paid
+All users will place an order selecting the menu salads of the current location.
+User will print the order for the customer and the order is paid.
 
 ## Kitchen screen
 
@@ -44,7 +44,7 @@ When printing, the order is marked as done and dissapear from the list.
 ## Reception screen
 
 All user can add new ingredients deliveries.
-This will create a income entry into the inventary
+This will create a income entry into the inventary.
 
 ## Waste screen
 
@@ -53,15 +53,26 @@ All user can add a waste operation, selecting the ingredients that are going to 
 ## Stock screen
 
 All users can set the current amount of ingredients in the warehouse.
-Application will show the current theoretical amount of ingredients and the user can change that number in order to match it with the real amount in the physical warehouse.
-Application will calculate the differences and record the inventory changes.
+The user will count the ingredients in the warehouse, look for the ingredient in the screen and set the current amount.
 These changes will allow us to measure how well are the ingredients quantities in the recepies and how well the cookers are following them. 
+
+## Manager reports
+
+This feature will be provided using SuperSet open-source application, installed local on-premise server
+This application allows to create dashboard in one instance and import it into another instance using a ZIP file
+In this video we can see how to do Import-Export operation: https://www.youtube.com/watch?v=Z808SF5rA20 (older version, but the process is similar)
+
+Why are we using Superset? Because...:
+
+- SuperSet is very fexible and allows us to learn which other reports the manager would need
+- We need to reduce complexity, as we have limited time for this first MVP version
+- Configuration can be imported in all instances
 
 # Features out of scope of this MVP
 
 ## Users login with higher security
 
-We are just asking a PIN code to each employee, each time the employee is using the appliation
+We are just asking a PIN code to each employee, each time the employee is using the application.
 This is not secure, as the PIN could be shared/watched with other employee. So, that employee could impersonate other to 
 perform the operation in the system.
 
@@ -71,7 +82,7 @@ Why are we selecting this method? Because...:
 - This is needed to record who is performing which operation
 - We need to reduce complexity, as we have limited time for this first MVP version
 
-On next iteration we could explore fast and more secure login methods, for example:
+On next iteration we could explore more secure login methods while keeping the user experience, for example:
 
 - Biometric login, using fingerprint sensor on mobile devices
 - NFC personal cards, using NFC sensor on mobile devices
@@ -87,18 +98,6 @@ Why are we let the API unsecure? Because..:
 - We need to reduce complexity, as we have limited time for this first MVP version
 
 On next iteration we could use a Bearer token, based on the login mechanism, to make authenticated calls to the API
-
-## Manager reports
-
-This feature will be provided using SuperSet open-source application, installed local on-premise server
-This application allows to create dashboard in one instance and import it into another instance using a ZIP file
-In this video we can see how to do Import-Export operation: https://www.youtube.com/watch?v=Z808SF5rA20 (older version, but the process is similar)
-
-Why are we using Superset? Because...:
-
-- SuperSet is very fexible and allows us to learn which other reports the manager would need
-- We need to reduce complexity, as we have limited time for this first MVP version
-- Configuration can be imported in all instances
 
 ## Permission management and user roles
 
@@ -155,14 +154,14 @@ Why are we discarding this feature? Because...:
 In this first MVP version. We are recording all the operations made in the restaurant and calculating the amount of ingredients on-the-fly.
 This allows us to have granular information ready to be analyzed during time (hourly, daily, weekly, ...) and reduce the complexity.
 But the performance will be impacted when we have huge amount of operations in the system.
-At that moment, we will be able to add a consolidtion feature to replace the oldest historical data (for instance, older than a year) into a single inventory operation (like an initial balance)
+In the future, we will be able to add a consolidation feature to replace the oldest historical data (for instance, older than a year) into a single inventory operation (like an initial balance)
 
 ## Cost and price management
 
-We are considering that costs and prices are constant during time
-Also inventary items cost is always the same
+We are considering that costs and prices are constant during time.
+Also inventary items cost is always the same.
 In a future version we should allow to set the cost to ingredients in the moment of reception, for instance based on the invoice received.
-Then we have to consume ingredients (when selling, wasting or adjusting inventory) in a certain order, for instance FiFo (first in first out). So, we can properly calculate the value of the inventory at any moment.
+Then we have to consume ingredients (when selling, wasting or adjusting inventory) in a certain order, for instance FiFo (first in first out, to reduce waste). So, we can properly calculate the value of the inventory at any moment.
 
 Why are we discarding this feature? Because...:
 
@@ -176,6 +175,14 @@ The requirements for modifiers and allergens are not clear from product perspect
 
 Why are we discarding this feature? Because...:
 - This feature is not included in the requirements, even though the data is provided in the Excel file
+- This is not blocking us to learn how this first version is working in a real scenario
+- We need to reduce complexity, as we have limited time for this first MVP version
+
+## Menus recipes
+
+We are assuming that each menu is composed by one salad, described by one recipe.
+
+Why are we discarding this feature? Because...:
 - We need to reduce complexity, as we have limited time for this first MVP version
 
 ## Editable inventory entries
@@ -187,7 +194,6 @@ Why are we discarding this feature? Because...:
 - Users can use a stock adjustment operation for fixing any human error
 - We need to reduce complexity, as we have limited time for this first MVP version
 
-
 ## Unit conversions
 
 This version is not managing ingredients unit conversion when receiving the Shipping.
@@ -197,13 +203,17 @@ Why are we discarding this feature? Because...:
 - Users can do the conversion by their own when receiving the Shipping. Application is showing the unit expected.
 - We need to reduce complexity, as we have limited time for this first MVP version
 
-
 ## UX improvements
 
 There are some UX improvements that are out-of-scope of the current version, like:
 
 - How the user selects the ingredients when receiving the Shipping. There are a huge amount of ingredients.
 - Stock screen forces user to add te current stock for all the ingredients in the warehouse. In the future iteration we could show all the current ingredients in the warehouse, so the user can visually compare the quantity and make adjustments with +/- buttons
+
+## Master data management
+
+Master data (staff, ingredients, recipies, menus) can be managed through this MVP version.
+The only way of managing it is connecting directly to database using SQL commands.
 
 
 # Data model schema
@@ -329,6 +339,10 @@ $ sudo apt update
 $ sudo apt install python3 python3-venv libpq-dev
 
 ```
+
+# Tests
+
+No test included yet
 
 
 # References
